@@ -39,11 +39,35 @@
     <a href="contact.html" class="w3-button w3-bar-item">Contact</a>
   </nav>
 
-  <form action="action_page.php" style="border:1px solid #ccc">
+  <form action="register.html" style="border:1px solid #ccc">
     <div class="container">
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
+
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" required>
+
+      <label for="age"><b>Age</b></label>
+      <input type="number" placeholder="Enter Age" name="age" required>
+
+      <label for="role"><b>User Role</b></label><br>
+      <form action="">
+        <input type="radio" name="role" value="parent"> Parent<br>
+        <input type="radio" name="role" value="child"> Child<br>
+      </form>
+
+      <br>
+
+      <label for="level"><b>User Level</b></label>
+      <form action="">
+        <input type="radio" name="level" value="simple"> Simple <br>
+        <input type="radio" name="level" value="advanced"> Advanced
+      </form>
+      <br>
+
+      <label for="diagnostic"><b>Diagnostic Information</b></label>
+      <input type="text" placeholder="Enter all relevant dianostics information">
 
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
