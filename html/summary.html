@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
 </head>
 <body>
 
@@ -27,6 +28,10 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
 <script src="../js/plugins.js"></script>
+<script src="../js/summary.js"></script>
+<script type="text/javascript" src="../js/summary.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
 
 <!-- Basic Navigation -->
 <nav class="w3-bar w3-black">
@@ -39,6 +44,23 @@
   <a href="contact.html" class="w3-button w3-bar-item">Contact</a>
 </nav>
 
+<div id="content">
   <p>Summary page Hello World</p>
+
+  <!-- Boilerplate text to get pdf export working -->
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus ipsum eu mi ultrices ultrices. Duis id pretium erat. Nulla lectus ante, laoreet id imperdiet vel, tincidunt et risus. Aliquam tempor suscipit erat, vel finibus turpis facilisis sit amet. Nullam eget blandit urna. Vivamus scelerisque metus sit amet felis laoreet, ac ultricies ligula gravida. Ut ante erat, efficitur ac velit in, eleifend iaculis ligula. Sed a consectetur urna. Cras accumsan mauris ligula, vel varius nibh dapibus vitae. Fusce aliquet dolor eu enim consequat dapibus. Aenean rhoncus ligula leo, sed congue sapien tempor nec. Nam nec magna sollicitudin, ornare quam nec, malesuada erat. Nam sed eleifend leo, a egestas neque. Phasellus ultrices tellus a pellentesque sodales. Phasellus sagittis non justo dictum dignissim. Nunc eget leo volutpat, bibendum risus in, accumsan metus.
+
+    Sed at porttitor ex. Sed semper suscipit tellus non rhoncus. Nam in lorem egestas, tristique nibh at, laoreet metus. Nam interdum sagittis velit nec elementum. Sed sollicitudin aliquam facilisis. Aliquam tristique ipsum vel viverra pulvinar. Suspendisse potenti. Maecenas nibh nunc, egestas non turpis eu, suscipit rhoncus elit. Ut sed velit et purus lobortis hendrerit in quis justo. Nullam lacinia eros feugiat congue gravida. Integer nulla risus, eleifend nec elementum eget, ornare et nulla. Vestibulum tempus vitae odio eu luctus. Sed finibus auctor iaculis. Morbi vitae venenatis nunc. Cras non est mi.
+
+    Donec odio turpis, consectetur vitae sapien non, suscipit pellentesque lacus. Integer porta massa a maximus auctor. Donec faucibus lacus mauris, non consequat lorem pharetra sit amet. In leo odio, placerat sit amet libero vitae, porta rhoncus nisi. Nulla facilisi. Nulla ultrices arcu neque, sit amet tristique felis luctus nec. Morbi volutpat venenatis vestibulum. Aliquam lobortis nibh nec nisl tincidunt, et bibendum arcu iaculis. Mauris nec nulla nunc. Etiam semper sit amet justo at lobortis. Aliquam venenatis mauris ut justo maximus, mattis rhoncus urna bibendum. Nulla facilisi. Morbi ac mauris rutrum, imperdiet mauris nec, ullamcorper quam. Nunc leo orci, porta et nulla et, pharetra fringilla quam. Aliquam diam eros, molestie at ornare vitae, cursus quis ex.
+
+    In sed auctor mauris. Curabitur sodales ipsum nisi, sit amet rutrum ligula tincidunt vitae. Mauris finibus sed nulla sit amet pellentesque. Curabitur sagittis nulla ut venenatis viverra. Sed faucibus, odio vel congue malesuada, lacus velit sagittis turpis, eu hendrerit quam erat vel dolor. Etiam a ex viverra, pretium arcu id, imperdiet felis. Duis at vehicula nulla, sed varius justo. Vivamus mattis egestas aliquet. Mauris eu porttitor tortor. Phasellus vel est ut nisi rutrum dictum vel eget nulla.
+
+    Pellentesque accumsan augue dui. Nullam at mollis dolor. In pulvinar libero id enim aliquet aliquam. Sed viverra mollis ipsum, eget pretium eros placerat et. Integer vitae quam at libero mattis interdum in quis nibh. Sed vel arcu enim. Vestibulum sed eros egestas, posuere enim vel, imperdiet purus. Suspendisse quis erat nec purus feugiat aliquam a eu turpis.</p>
+
+</div>
+<div id="editor"></div>
+<button id="cmd">Export to PDF</button>
+
 </body>
 </html>
