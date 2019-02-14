@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 
+    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript">
+      (function(){
+        emailjs.init("user_LlpLsb43ejpGbDfbPEpdL");
+      })();
+    </script>
+
 </head>
 <body>
 
@@ -61,6 +68,19 @@
 </div>
 <div id="editor"></div>
 <button id="cmd">Export to PDF</button>
+<br>
+<br>
+<form id="contact-form">
+  <input type="hidden" name="contact_number">
+  <label>Name</label>
+  <input type="text" name="user_name">
+  <label>Email</label>
+  <input type="email" name="user_email">
+  <label>Message</label>
+  <textarea name="contact"></textarea>
+  <input type="submit" value="Send">
+</form>
+<button id="email">Email</button>
 
 </body>
 </html>
