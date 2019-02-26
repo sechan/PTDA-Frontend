@@ -1,23 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Decision</title>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="manifest" href="../site.webmanifest">
-    <link rel="apple-touch-icon" href="../icon.png">
-    <!-- Place favicon.ico in the root directory -->
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="apple-touch-icon" href="../icon.png">
+  <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
 </head>
-<body>
 
+<body>
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
@@ -27,6 +27,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
 <script src="../js/plugins.js"></script>
+<script src="../js/main.js"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+ <style type="text/css">
+    #likert { text-align:center; }
+    #likert td { width: 70px; }
+ </style>
 
 <!-- Basic Navigation -->
 <nav class="w3-bar w3-black">
@@ -36,10 +42,100 @@
   <a href="summary.html" class="w3-button w3-bar-item">Summary</a>
   <a href="forums.html" class="w3-button w3-bar-item">Forums</a>
   <a href="register.html" class="w3-button w3-bar-item">Sign Up</a>
+  <a href="login.html" class="w3-button w3-bar-item">Sign In</a>
   <a href="contact.html" class="w3-button w3-bar-item">Contact</a>
 </nav>
 
-  <p>Decision page Hello World</p>
+<center>
+<p id="question"></p>
+  <table id="likert">
+     <tr>
+         <td><input id="radScoreStart" type="radio" name="Score" value="1" /></td>
+         <td><input type="radio" name="Score" value="2" /></td>
+         <td><input type="radio" name="Score" value="3" /></td>
+         <td><input type="radio" name="Score" value="4" /></td>
+         <td><input id="radScoreEnd" type="radio" name="Score" value="5" /></td>
+     </tr>
+     <tr>
+         <td>Strongly Disagree</td>
+         <td></td>
+         <td></td>
+         <td></td>
+         <td>Strongly Agree</td>
+     </tr>
+  </table>
+  <button id="next" onClick = "nextQuestion()">Select</button>
+  <form action="/jsp/decisionGuide.jsp">
+  <button>Complete</button>
+</center>
+<input type = "hidden" id ="response1" name = "response1" value = "5">
+<input type = "hidden" id ="response2" name = "response2" value = "1">
+<input type = "hidden" id ="response3" name = "response3" value = "1">
+<input type = "hidden" id ="response4" name = "response4" value = "1">
+<input type = "hidden" id ="response5" name = "response5" value = "1">
+  </form>
+
+<script>
+var questions = [
+	"I am uncomfortable about the risks of general anesthesia",
+	"I feel medications may be safer and a less risky approach to treatment",
+	"Treatments in which I am not able to reverse or fully control how they are administered make me uncomfortable",
+	"I believe medications can be harmful and only used when it is the only option",
+	"I do not believe I would be responsible enough to manage a medication regimen",
+	"I feel medications are only a temporary solution"
+];
+var currentQuestion = 0;
+
+$(window).on('load', function(){
+	document.getElementById("question").innerHTML = questions[currentQuestion];
+});
+
+function nextQuestion(){
+
+
+	if(currentQuestion < questions.length - 1)
+	{
+		var id = "response"+(currentQuestion+1);
+		var radios = document.getElementsByName("Score");
+		for(var i = 0; i < 5; i++)
+		{
+			if(radios[i].checked)
+			{
+				console.log(i);
+				document.getElementById(id).value = radios[i].value;
+				console.log(document.getElementById(id).value);
+			}
+		}
+		currentQuestion++;
+		document.getElementById("question").innerHTML = questions[currentQuestion];
+		console.log("help");
+		if(currentQuestion == 3)
+		{
+			var q1 = parseInt(document.getElementById("response1").value);
+			var q2 = parseInt(document.getElementById("response2").value);
+			var q3 = parseInt(document.getElementById("response3").value);
+			if((q1+q2+q3) >= 12)
+			{
+				for(var i = 2; i < 5; i++)
+				{
+					var id = "response"+(i+1);
+					document.getElementById(id).value = 1;
+				}
+				
+				window.location.replace("../jsp/decisionGuide.jsp");
+			}
+		}
+	}
+	else
+	{
+		
+	}
+}
+
+
+</script>
+
 
 </body>
+
 </html>
